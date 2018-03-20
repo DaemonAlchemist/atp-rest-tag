@@ -27,6 +27,10 @@
   "author": "Andrew Wittrock",
   "license": "MIT",
   "dependencies": {
+    "atp-active-record": "^0.11.5",
+    "atp-pointfree": "^0.9.0",
+    "atp-rest": "^0.24.0",
+    "atp-rest-uac": "^0.25.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

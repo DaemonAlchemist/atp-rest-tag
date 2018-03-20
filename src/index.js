@@ -1,12 +1,11 @@
 
-import tagRoutes from './routes/tag';
+import tag from './routes/tag';
+import tagEntity from './routes/tag-entity';
 
 //import validators from "./validators/index";
 
 export default ({
-    routes: {
-        tag: tagRoutes,
-    },
+    routes: {tag, tagEntity},
     config: {
         //validators
     }
