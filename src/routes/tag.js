@@ -24,8 +24,9 @@ export default {
         entity: {
             get: basicController.entity.collection({
                 model: TagEntity, permission: permissions.view,
+                filter: req => req.params,
                 processResults: results => ({
-                    results: map(remove(['id', 'entityTypeId', 'tagId', 'tagId']))(results)
+                    results: map(remove(['id', 'entityTypeId']))(results)
                 })
             }),
             post: NOT_SUPPORTED
