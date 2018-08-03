@@ -2,6 +2,8 @@
 import {basicController, NOT_IMPLEMENTED, NOT_SUPPORTED} from 'atp-rest';
 import {createCrudPermissions} from "atp-rest-uac";
 import Tag from "../model/tag";
+import TagEntity from "../model/tag-entity";
+import {map, remove} from "atp-pointfree";
 
 const model = Tag;
 const permissions = createCrudPermissions('tag', 'tag');
@@ -20,7 +22,12 @@ export default {
         put: NOT_SUPPORTED,
         patch: NOT_SUPPORTED,
         entity: {
-            get: NOT_IMPLEMENTED,
+            get: basicController.entity.collection({
+                model: TagEntity, permission: permissions.view,
+                processResults: results => ({
+                    results: map(remove(['id', 'entityTypeId', 'tagId', 'tagId']))(results)
+                })
+            }),
             post: NOT_SUPPORTED
         }
     }
